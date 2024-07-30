@@ -1,0 +1,17 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+span {
+    color: red;
+}
+img {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    bottom: 86%;
+}
+
+#thirdRow th{
+    border-style: none;
+}
+
