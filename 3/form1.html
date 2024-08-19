@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h3>Registration Form</h3>
+    <br>
+    <form id="registration-form" action="">
+        <div class="form-group">
+            <label for="reg-no">Reg No:</label>
+            <input type="number" name="regNo" id="reg-no" placeholder="Enter Your Roll No" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="Enter Your Name" required>
+        </div>
+        <div class="form-group">
+            <label for="year">Year:</label>
+            <select name="year" id="year" required>
+                <option value="" selected disabled>Select Your Current Year</option>
+                <option value="1st">1st</option>
+                <option value="2nd">2nd</option>
+                <option value="3rd">3rd</option>
+                <option value="4th">4th</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age" placeholder="Enter Your Age" min="1">
+        </div>
+        <div class="form-group">
+            <label>Gender:</label>
+            <input type="radio" name="gender" id="male" value="male" required>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female" value="female" required>
+            <label for="female">Female</label>
+        </div>
+        <div class="form-group">
+            <label for="semester">Semester:</label>
+            <select name="semester" id="semester" required>
+                <option value="" selected disabled>Select Your Current Semester</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="acad-year">Academic Year:</label>
+            <select name="academicYear" id="acad-year" required>
+                <option value="" selected disabled>Select Your Academic Year</option>
+                <option value="2020-2021">2020-2021</option>
+                <option value="2021-2022">2021-2022</option>
+                <option value="2022-2023">2022-2023</option>
+                <option value="2023-2024">2023-2024</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="subject-code">Subject Code:</label>
+            <input type="text" name="subjectCode" id="subject-code" placeholder="Subject Code" required>
+        </div>
+        <div class="form-group">
+            <label for="subject-name">Subject Name:</label>
+            <input type="text" name="subjectName" id="subject-name" placeholder="Subject Name" required>
+        </div>
+        <div class="form-group">
+            <label for="credit">Credit:</label>
+            <select name="credit" id="credit" required>
+                <option value="" selected disabled>Select Your Subject Credit</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <br>
+        <button id="submit">Submit</button>
+        <button type="reset">Clear Entry</button>
+    </form>
+    <script>
+    document.getElementById('registration-form').addEventListener('submit', function(event) {
+        const regNo = document.getElementById('reg-no').value;
+        const subjectCode = document.getElementById('subject-code').value;
+    
+        const regNoPattern = /^\d{9}$/;
+        const subjectCodePattern = /^[A-Za-z]{2}\d{5}$/;
+    
+        if (!regNoPattern.test(regNo)) {
+            window.alert('Registration number must be a 9-digit number.');
+            event.preventDefault();  // Prevents the form submission
+            document.getElementById("reg-no").focus();
+            return;
+        }
+    
+        if (!subjectCodePattern.test(subjectCode)) {
+            window.alert('Subject Code must be 7 characters long, with the first 2 characters as letters followed by 5 numbers.');
+            event.preventDefault();
+            document.getElementById("subject-code").focus();
+            return;
+        }
+    
+        // If both checks pass
+        alert('Form submitted successfully!');
+    });
+</script>    
+</body>
+</html>
