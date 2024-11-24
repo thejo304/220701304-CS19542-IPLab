@@ -1,0 +1,8 @@
+Hello World from the text document 👋
+Steps:
+1. Create a dummy text document with some content in that
+2. Create a HTML file with a div to display content and button to intiate request
+3. Inside script tag create a function loadDoc()
+4. Create new XMLHttpRequest object
+5. Get file content by sending a open request to the resource
+6. Once the response status is 200 change the innerHtml of div
